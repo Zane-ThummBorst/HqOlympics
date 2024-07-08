@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'OldLondon';
+    src: url('./OldLondon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'PilsenPlakat';
+    src: url('./PilsenPlakat.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+  
