@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b724892d.css",
+    "main.js": "/static/js/main.3413f25a.js",
+    "static/js/453.258b012d.chunk.js": "/static/js/453.258b012d.chunk.js",
+    "static/media/OldLondon.ttf": "/static/media/OldLondon.a67214b49bb04c352ce8.ttf",
+    "static/media/PilsenPlakat.ttf": "/static/media/PilsenPlakat.c04f1a6e3a12270e9a11.ttf",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.b724892d.css.map": "/static/css/main.b724892d.css.map",
+    "main.3413f25a.js.map": "/static/js/main.3413f25a.js.map",
+    "453.258b012d.chunk.js.map": "/static/js/453.258b012d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b724892d.css",
+    "static/js/main.3413f25a.js"
+  ]
+}
