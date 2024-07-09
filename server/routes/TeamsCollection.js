@@ -141,7 +141,9 @@ router.get('/getAllTeams', async(req,res) =>{
     .then(response =>{
         res.json(response)
     }).catch(error => {
+        console.log("its so over")
         res.json(error)
+
     })
 })
 
