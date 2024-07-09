@@ -1,13 +1,13 @@
 
 const express = require('express')
 const app = express()
-const port = 1234
 const UserCollection = require('./routes/UserCollection')
 const TeamsCollection = require('./routes/TeamsCollection')
 
 const cookieParser = require('cookie-parser')
 
 require('dotenv').config();
+const port = process.env.PORT || 1234
 
 let cors = require('cors');
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));

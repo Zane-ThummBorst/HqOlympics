@@ -139,6 +139,8 @@ router.get('/getAllTeams', async(req,res) =>{
     await Teams.find({}).toArray()
     .then(response =>{
         res.json(response)
+    }).catch(error => {
+        res.json(error)
     })
 })
 
