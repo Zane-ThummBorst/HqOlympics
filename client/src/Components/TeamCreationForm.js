@@ -126,7 +126,7 @@ const TeamCreationForm = () =>{
                 }}
                 >
                   <Box sx={{ display: 'flex', justifyContent: 'center', }}>
-                  <img src={`https://flagcdn.com/${countryCode ? countryCode : 'us'}`}  width="300" height="200"/>
+                  <img src={`https://flagcdn.com/${countryCode ? countryCode : 'us'}.svg`}  width="300" height="200"/>
                   </Box>
                 <Autocomplete fullWidth
                 options={countries}
