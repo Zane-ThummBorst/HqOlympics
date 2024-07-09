@@ -65,7 +65,7 @@ const TeamCreationForm = () =>{
         if(checkTeamName()){
             let result = false;
             let team_id = null;
-            await axios.post('http://localhost:1234/teams/createTeam', {
+            await axios.post(`${process.env.REACT_APP_API_URL}/teams/createTeam`, {
                 teamName: teamName,
                 username: username,
                 countryCode: countryCode,
@@ -88,7 +88,7 @@ const TeamCreationForm = () =>{
             })
 
             if(team_id){
-                await axios.put('http://localhost:1234/users/joinsTeam',
+                await axios.put(`${process.env.REACT_APP_API_URL}/users/joinsTeam`,
                     {teamId: team_id},
                     {
                         headers: {

@@ -49,7 +49,7 @@ const LoginForm = () =>{
             extraCuricularRole: extraCuricularRole,
             additionalNotes: additionalNotes,
         }
-        await axios.post('http://localhost:1234/users/createUser', body)
+        await axios.post(`${process.env.REACT_APP_API_URL}/users/createUser`, body)
         .then(response =>{
             console.log(response.data)
             localStorage.setItem('jwt_token', response.data)

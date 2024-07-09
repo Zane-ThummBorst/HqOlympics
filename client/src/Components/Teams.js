@@ -40,7 +40,7 @@ const Teams = ({item}) =>{
     */
     const joinTeam = async() =>{
         let result = false
-        await axios.put('http://localhost:1234/teams/joinTeam',
+        await axios.put(`${process.env.REACT_APP_API_URL}/teams/joinTeam`,
             {teamCode: userTeamCode, username: username, teamId: team_id},
             {
                 headers: {
@@ -65,7 +65,7 @@ const Teams = ({item}) =>{
         if(result){
             setCodeError(false)
             setCodeErrorStatus('')
-            await axios.put('http://localhost:1234/users/joinsTeam',
+            await axios.put(`${process.env.REACT_APP_API_URL}/users/joinsTeam`,
                 {teamId: team_id},
                 {
                     headers: {
@@ -83,7 +83,7 @@ const Teams = ({item}) =>{
 
     const leaveTeam = async() =>{
         let result = false
-        await axios.put('http://localhost:1234/teams/removeFromTeam',
+        await axios.put(`${process.env.REACT_APP_API_URL}/teams/removeFromTeam`,
             {teamCode: '0VAFC7', teamId: team_id},
             {
                 headers: {
@@ -100,7 +100,7 @@ const Teams = ({item}) =>{
                 console.log('failure')
             })
         if(result){
-            await axios.put('http://localhost:1234/users/leavesTeam',
+            await axios.put(`${process.env.REACT_APP_API_URL}/users/leavesTeam`,
                 {teamId: team_id},
                 {
                     headers: {
@@ -121,7 +121,7 @@ const Teams = ({item}) =>{
     const deleteTeam = async() =>{
         console.log(teamList)
         console.log(team_id)
-        axios.post('http://localhost:1234/teams/deleteTeam',{teamId: team_id})
+        axios.post(`${process.env.REACT_APP_API_URL}/teams/deleteTeam`,{teamId: team_id})
         .then(response =>{
             // do something
             setTeamList(teamList.filter(item => item.team_id !== team_id))

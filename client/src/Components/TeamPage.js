@@ -10,7 +10,7 @@ const TeamPage = () =>{
     const {loginStatus,deletionStatus, setDeletionStatus, setLoginStatus, setTeamCreationStatus, captain, username, teamStatus, team, setTeam, userId} =  useContext(MyContext)
     useEffect( () =>{
         const getTeams = async() =>{
-            axios.get('http://localhost:1234/teams/getAllTeams')
+            axios.get(`${process.env.REACT_APP_API_URL}/teams/getAllTeams`)
             .then(response =>{
                 setTeamList(response.data)
             })

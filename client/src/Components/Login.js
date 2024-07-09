@@ -49,7 +49,7 @@ const Login = () =>{
 
     const handleSubmission = async() =>{
         if(checkUsername() & checkPassword()){
-            axios.post('http://localhost:1234/users/loginUser',{
+            axios.post(`${process.env.REACT_APP_API_URL}/users/loginUser`,{
                 username: username,
                 password: password
             }).then( response =>{

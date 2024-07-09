@@ -32,7 +32,7 @@ function App() {
             let team = null;
             let teamExists = true;
             const headers = {Authorization: `Bearer ${localStorage.getItem('jwt_token')}`} 
-            await axios.get('http://localhost:1234/users/getUser',
+            await axios.get(`${process.env.REACT_APP_API_URL}/users/getUser`,
                 {headers})
             .then( response =>{
                 if(response.data){
@@ -49,7 +49,7 @@ function App() {
             })
 
             if(team){
-              await axios.get(`http://localhost:1234/teams/getTeam/${team}`)
+              await axios.get(`${process.env.REACT_APP_API_URL}/teams/getTeam/${team}`)
               .then(response =>{
                 if(response.data == null){
                   teamExists = false
@@ -58,7 +58,7 @@ function App() {
             }
 
             if (!teamExists){
-              await axios.put('http://localhost:1234/users/leavesTeam',
+              await axios.put(`${process.env.REACT_APP_API_URL}/users/leavesTeam`,
                 {},
                 {
                     headers: {
