@@ -3,15 +3,14 @@ const router = express.Router();
 const axios = require('axios');
 const crypto = require('crypto');
 const {MongoClient} = require('mongodb');
-const client = new MongoClient("mongodb://0.0.0.0:27017/", { monitorCommands: true })
 const { param, body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const saltRounds = 10;
 const dotenv = require('dotenv')
-dotenv.config({
-    path:'../.env'
-});
+require('dotenv').config();
+
+const client = new MongoClient(process.env.MONGO_URI, { monitorCommands: true })
 
 
 const isAuthorized = (req,res,next) =>{
