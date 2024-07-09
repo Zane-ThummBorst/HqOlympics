@@ -134,6 +134,7 @@ router.put('/updateTeam', async(req,res) =>{
 })
 
 router.get('/getAllTeams', async(req,res) =>{
+    console.log(process.env.MONGO_URI)
     const db = client.db('BeerOlympics')
     const Teams = db.collection('Teams')
     await Teams.find({}).toArray()
