@@ -155,7 +155,8 @@ const Teams = ({item}) =>{
                 padding:'1em',
                  position: 'relative'
             }}>
-                <img src={`https://flagcdn.com/${countryCode}.svg#svgView(preserveAspectRatio(none))`} width="300" height= '200'/>
+                      <img src={`https://flagcdn.com/w640/${countryCode ? countryCode : 'us'}.webp`}
+                  style={{ width: '300px', height: '200px' }}/>
                 <div style={{textAlign: 'center'}}>
                     <Typography fontFamily={"OldLondon"} sx={{ mt: 4, mb: 2 }} variant="h4" component="div">
                         {team_name}
