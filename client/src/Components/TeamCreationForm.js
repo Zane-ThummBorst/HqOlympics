@@ -10,7 +10,7 @@ import Grid from '@mui/material/Unstable_Grid2'
 
 const TeamCreationForm = () =>{
     const navigate = useNavigate();
-    const [countryCode, setCountryCode] = useState('')
+    const [countryCode, setCountryCode] = useState('us')
     const [teamCode, setTeamCode] = useState('')
     const [countryCodeError, setCountryCodeError] = useState(null)
     const [countryCodeErrorStatus, setCountryCodeErrorStatus] = useState('')
