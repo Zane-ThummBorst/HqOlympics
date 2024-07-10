@@ -144,7 +144,7 @@ const TeamCreationForm = () =>{
                 onChange={handleTeamName}
                 error={teamNameError}
                 helperText={teamNameErrorStatus}
-                InputProps={{style: {fontFamily:'PilsenPlakat'}}}
+                InputProps={{style: {fontFamily:'PilsenPlakat', maxLength: 20}}}
                 InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
                 sx={{
                     mt: 3}}
