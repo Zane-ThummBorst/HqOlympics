@@ -6,6 +6,7 @@ import countries from './CountryData';
 import { useNavigate } from "react-router-dom";
 import ModalCode from './ModalCode';
 import Grid from '@mui/material/Unstable_Grid2'
+import branVenmo from '../assets/images/branVenmo.jpg'
 
 const Catering = () =>{
     return(
@@ -27,7 +28,7 @@ const Catering = () =>{
                 }}
                 >
                   <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-                  <img src={'%PUBLIC_URL%/branVenmo.jpg'}/>
+                  <img src={branVenmo} style={{width: '300px', height: '300px'}}/>
                   </Box>
                   </Grid>
                   <Grid xs/>
