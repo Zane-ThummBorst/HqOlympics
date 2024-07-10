@@ -14,6 +14,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Dehaze from '@mui/icons-material/Dehaze'
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import FAQ from './FAQ'
 
 
 const NavBar = () =>{
@@ -52,11 +53,11 @@ const NavBar = () =>{
                             <>
                                 <Button sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }} onClick={() => navigate('/')}>Team Page</Button>
                                 <Button sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }} onClick={() => navigate('/TeamCreation')}>Team Creation</Button>
+                                <Button sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }} onClick={() => navigate('/FAQ')}>FAQ/ABOUT</Button>
+
                             </>
                         ) : (
-                            // Render a dropdown menu or other responsive UI elements here
                             <div>
-                                {/* Example of a simple dropdown button */}
                                 <IconButton  sx={{'color':'#fffbe0'}} onClick={handleMenu2}>
                                     <Dehaze/>
                                 </IconButton>
@@ -70,6 +71,9 @@ const NavBar = () =>{
                                 >
                                     <MenuItem onClick={() => navigate('/')} sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }}>Team Page</MenuItem>
                                     <MenuItem onClick={() => navigate('/TeamCreation')} sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }}>Team Creation</MenuItem>
+                                    <MenuItem onClick={() => navigate('/FAQ')} sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }}>FAQ/ABOUT</MenuItem>
+
+                                    
                                 </Menu>
                             </div>
                         )}
@@ -106,6 +110,7 @@ const NavBar = () =>{
                 <Route path="Register" element={<LoginForm/>}/>
                 <Route path = "TeamCreation" element={<TeamCreationForm/>}/>
                 <Route path = "Login" element={<Login/>}/>
+                <Route path = "FAQ" element={<FAQ/>}/>
 
                 </Routes>
         </>
