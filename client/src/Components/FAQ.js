@@ -97,6 +97,24 @@ const FAQ = () =>{
                         feel free to shoot us anything on your mind at hqbeerolympics@gmail.com
                     </Typography>
                 </Box>
+
+                <Box sx={{mt:3}}>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
+                        Why can't I create a team?
+                    </Typography>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                        There are a few reasons for why youy may not be able to create a team. Only captains can create teams and cannot join teams. Each captain can create one team.
+                    </Typography>
+                </Box>
+
+                <Box sx={{mt:3}}>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
+                        Why can't I join a team
+                    </Typography>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                        There are a few reasons why you might not be able to join a team. only non captains can join teams, and you must be signed in to join a team. You can only be apart of one team.
+                    </Typography>
+                </Box>
             </Grid>
             <Grid xs/>
         </Grid>
