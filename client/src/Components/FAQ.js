@@ -64,10 +64,10 @@ const FAQ = () =>{
                 </Box>
 
                 <Box sx={{mt:3}}>
-                    <Typography fontFamily={'PilsenPlakat'} variant='h4' component='h6'>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                         Food?
                     </Typography>
-                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='p' component='h6'>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
                         There will be food.
                     </Typography>
                 </Box>
