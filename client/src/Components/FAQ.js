@@ -26,39 +26,39 @@ const FAQ = () =>{
                }}
                >
                 <Box sx={{mt:3}}>
-                    <Typography fontFamily={'PilsenPlakat'} variant='h4' component='h6'>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                         What is this thing?
                     </Typography>
-                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='p' component='h6'>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
                         In Commemoration of The 2024 Olympics, HQ has decided it'd be best to host our own Olympic style event complete with its own set of games revoloving around booze.
                     </Typography>
                 </Box>
 
                 <Box sx={{mt:3}}>
-                    <Typography fontFamily={'PilsenPlakat'} variant='h4' component='h6'>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                         When is this thing?
                     </Typography>
-                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='p' component='h6'>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
                         August 10th. In the event of weater, our rain Day is August 23rd.
                     </Typography>
                 </Box>
 
 
                 <Box sx={{mt:3}}>
-                    <Typography fontFamily={'PilsenPlakat'} variant='h4' component='h6'>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                         Can I come and participate in games even if I don't want to drink?
                     </Typography>
-                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='p' component='h6'>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
                        You sure can!
                     </Typography>
                 </Box>
 
 
                 <Box sx={{mt:3}}>
-                    <Typography fontFamily={'PilsenPlakat'} variant='h4' component='h6'>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                         What if I don't have a team, but want to be a part of the games?
                     </Typography>
-                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='p' component='h6'>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
                         We'll squeeze you in somewhere.
                     </Typography>
                 </Box>
