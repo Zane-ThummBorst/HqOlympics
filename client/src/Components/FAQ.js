@@ -30,7 +30,7 @@ const FAQ = () =>{
                         What is this thing?
                     </Typography>
                     <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
-                        In Commemoration of The 2024 Olympics, HQ has decided it'd be best to host our own Olympic style event complete with its own set of games revoloving around booze.
+                        In commemoration of The 2024 Olympics, HQ has decided it'd be best to host our own Olympic style event complete with its own set of games revoloving around booze.
                     </Typography>
                 </Box>
 
@@ -39,7 +39,7 @@ const FAQ = () =>{
                         When is this thing?
                     </Typography>
                     <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                        August 10th. In the event of weater, our rain Day is August 23rd.
+                        August 10th. In the event of weather, our rain day is August 23rd.
                     </Typography>
                 </Box>
 
@@ -53,13 +53,21 @@ const FAQ = () =>{
                     </Typography>
                 </Box>
 
+                <Box sx={{mt:3}}>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
+                        How big our teams suppose to be?
+                    </Typography>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
+                        Teams can be anywhere between 4-6 people, if you can't hit that margin we will most likely find a solo to join your team.
+                    </Typography>
+                </Box>
 
                 <Box sx={{mt:3}}>
                     <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                         What if I don't have a team, but want to be a part of the games?
                     </Typography>
                     <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
-                        We'll squeeze you in somewhere.
+                        We'll squeeze you in some team somewhere.
                     </Typography>
                 </Box>
 
