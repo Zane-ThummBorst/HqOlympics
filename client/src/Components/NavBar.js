@@ -15,6 +15,7 @@ import Dehaze from '@mui/icons-material/Dehaze'
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import FAQ from './FAQ'
+import Catering from './Catering';
 
 
 const NavBar = () =>{
@@ -54,6 +55,7 @@ const NavBar = () =>{
                                 <Button sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }} onClick={() => navigate('/')}>Team Page</Button>
                                 <Button sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }} onClick={() => navigate('/TeamCreation')}>Team Creation</Button>
                                 <Button sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }} onClick={() => navigate('/FAQ')}>FAQ/ABOUT</Button>
+                                <Button sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }} onClick={() => navigate('/Catering')}>Catering</Button>
 
                             </>
                         ) : (
@@ -72,6 +74,8 @@ const NavBar = () =>{
                                     <MenuItem onClick={() => navigate('/')} sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }}>Team Page</MenuItem>
                                     <MenuItem onClick={() => navigate('/TeamCreation')} sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }}>Team Creation</MenuItem>
                                     <MenuItem onClick={() => navigate('/FAQ')} sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }}>FAQ/ABOUT</MenuItem>
+                                    <MenuItem onClick={() => navigate('/Catering')} sx={{ 'color': '#fffbe0', fontFamily: 'PilsenPlakat' }}>Catering</MenuItem>
+
 
                                     
                                 </Menu>
@@ -111,6 +115,7 @@ const NavBar = () =>{
                 <Route path = "TeamCreation" element={<TeamCreationForm/>}/>
                 <Route path = "Login" element={<Login/>}/>
                 <Route path = "FAQ" element={<FAQ/>}/>
+                <Route path = "Catering" element={<Catering/>}/>
 
                 </Routes>
         </>
