@@ -76,7 +76,7 @@ const ParticipationForm = () =>{
                 mt: 3}} 
             >
                 <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Participate">Particpate in Beer Olympic Games</MenuItem>
-                <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Hang Out">Hang out and watch games</MenuItem>
+                <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Hang Out">Hang out and watch</MenuItem>
             </TextField>
             <FormHelperText >{motiveError ? motiveErrorStatus : ''}</FormHelperText>
             </FormControl>
@@ -86,8 +86,8 @@ const ParticipationForm = () =>{
                 <RadioGroup
                     value = {sobrietyChoice}
                     onChange={handleSobriety}>
-                    <FormControlLabel value="yes" control={<Radio />} label={<Typography fontFamily={'PilsenPlakat'}>Yes</Typography>} />
-                    <FormControlLabel value="No" control={<Radio />} label={<Typography fontFamily={'PilsenPlakat'}>No</Typography>} />                      
+                    <FormControlLabel value="yes" control={<Radio />} label={<Typography fontFamily={'PilsenPlakat'}>Sober</Typography>} />
+                    <FormControlLabel value="No" control={<Radio />} label={<Typography fontFamily={'PilsenPlakat'}>Olympian</Typography>} />                      
                 </RadioGroup>
                 <FormHelperText>{sobrietyError ? sobrietyErrorStatus : ''}</FormHelperText>
             </FormControl>
@@ -102,14 +102,3 @@ const ParticipationForm = () =>{
 }
 
 export default ParticipationForm;
-
-{/* <InputLabel>Sobriety Status</InputLabel>
-<FormControl error ={sobrietyError}>
-    <RadioGroup
-        value = {sobrietyChoice}
-        onChange={handleSobriety}>
-        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-        <FormControlLabel value="No" control={<Radio />} label="No" />                      
-    </RadioGroup>
-    <FormHelperText>{sobrietyError ? sobrietyErrorStatus : ''}</FormHelperText>
-</FormControl> */}

@@ -77,7 +77,7 @@ const CaptainStatusForm = () =>{
                         mt: 3}} 
                     >
                         <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Captain">Captain</MenuItem>
-                        <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Apart of Team">Apart of Team</MenuItem>
+                        <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Apart of Team">A Part of a Team</MenuItem>
                         <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Solo">Solo</MenuItem>
                     </TextField>
                     <FormHelperText>{statusError ? statusErrorStatus : ''}</FormHelperText>

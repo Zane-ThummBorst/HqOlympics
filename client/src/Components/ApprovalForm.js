@@ -84,8 +84,9 @@ const ApprovalForm = () =>{
             sx={{
                 mt: 3}} 
             >
-                <MenuItem value="Ref">Ref</MenuItem>
-                <MenuItem value="Film">Film</MenuItem>
+                <MenuItem value="Ref">Referee</MenuItem>
+                <MenuItem value="Film">Filming</MenuItem>
+                <MenuItem value="Beer Drinker">Beer Drinker</MenuItem>
                 <MenuItem value="Nothing">Nothing</MenuItem>
             </TextField>
             <FormHelperText>{extraCuricularRoleError ? extraCuricularRoleErrorStatus : ''}</FormHelperText>
