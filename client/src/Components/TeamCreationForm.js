@@ -46,7 +46,9 @@ const TeamCreationForm = () =>{
     }
 
     const handleTeamName = (event) =>{
-        setTeamName(event.target.value);
+        if(event.target.value.length < 15){
+            setTeamName(event.target.value);  
+        }
     }
 
     const checkTeamName = () =>{
@@ -144,7 +146,7 @@ const TeamCreationForm = () =>{
                 onChange={handleTeamName}
                 error={teamNameError}
                 helperText={teamNameErrorStatus}
-                InputProps={{style: {fontFamily:'PilsenPlakat', maxLength: 20}}}
+                InputProps={{style: {fontFamily:'PilsenPlakat', }}}
                 InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
                 sx={{
                     mt: 3}}
