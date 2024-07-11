@@ -28,7 +28,7 @@ const Catering = () =>{
                 }}
                 >
 
-                <Box sx={{mt:3, display: 'flex', justifyContent: 'center'}}>   
+                <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
                     <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                             Want Grub?
                     </Typography>
@@ -36,7 +36,7 @@ const Catering = () =>{
                   <Box sx={{ mt:3, display: 'flex', justifyContent: 'center'}}>
                     <img src={branVenmo} style={{width: '300px', height: '300px', borderRadius: '1em'}}/>
                   </Box>
-                  <Box sx={{mt:3, display: 'flex', justifyContent: 'center'}}>
+                  <Box sx={{mt:3, display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
                     <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
                        *$5.00 for Beer
                     </Typography>
