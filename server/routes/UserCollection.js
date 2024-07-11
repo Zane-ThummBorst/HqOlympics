@@ -11,8 +11,6 @@ const saltRounds = 10;
 require('dotenv').config();
 const client = new MongoClient(process.env.MONGO_URI, { monitorCommands: true })
 
-
-
 const isAuthorized = (req,res,next) =>{
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
