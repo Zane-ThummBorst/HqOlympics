@@ -131,6 +131,7 @@ router.post('/createUser',[
 
 }])
 
+// UNUSED
 router.post('/updateUser', isAuthorized, checkForBadWords, async(req,res) =>{
     const {
         username,
@@ -166,45 +167,57 @@ router.post('/updateUser', isAuthorized, checkForBadWords, async(req,res) =>{
         })
 })
 
-router.post('/loginUser', async(req,res)=>{
-    const {username, password} = req.body
-    const db = client.db('BeerOlympics')
-    const users = db.collection('Users')
-    await users.findOne({username: username})
-    .then( response => {
-        if(!response.user_id){
-            res.status(404).send({ error: "User not found" });
+router.post('/loginUser',[
+    body("username").isString().trim().escape(),
+    body("password").isString().trim()],
+    async(req,res)=>{
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
         }
-        let user_id = response.user_id;
-        let passwordHash = response.password;
-        bcrypt.compare(password, passwordHash, (err, result) =>{
-            if(result){
-                const token = jwt.sign({ userId: user_id }, process.env.SECRET_KEY );
-                console.log("user successfully logged in")
-                res.json(token)
-            }else{
-                res.status(401).send({ error: "password was Incorrect" });
+        const {username, password} = req.body
+        const db = client.db('BeerOlympics')
+        const users = db.collection('Users')
+        await users.findOne({username: username})
+        .then( response => {
+            if(!response.user_id){
+                res.status(404).send({ error: "User not found" });
             }
+            let user_id = response.user_id;
+            let passwordHash = response.password;
+            bcrypt.compare(password, passwordHash, (err, result) =>{
+                if(result){
+                    const token = jwt.sign({ userId: user_id }, process.env.SECRET_KEY );
+                    console.log("user successfully logged in")
+                    res.json(token)
+                }else{
+                    res.status(401).send({ error: "password was Incorrect" });
+                }
+            })
+        }).catch(error =>{
+            res.status(404).send({ error: "User not found" });
         })
-    }).catch(error =>{
-        res.status(404).send({ error: "User not found" });
     })
-})
 
-router.put('/joinsTeam', isAuthorized, async(req,res) =>{
-    const {teamId} = req.body;
+router.put('/joinsTeam',[body("teamId").isString().trim().escape()],
+    isAuthorized,
+    async(req,res) =>{
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const {teamId} = req.body;
 
-    const db = client.db('BeerOlympics')
-    const users = db.collection('Users')
-    const query = {user_id: req.userId}
-    await users.updateOne(query, {$set : {teamStatus: true, team: teamId}})
-    .then( response => {
-        console.log("User has joined Team")
-        res.json(response)
-    }).catch(error =>{
-        next(error)
+        const db = client.db('BeerOlympics')
+        const users = db.collection('Users')
+        const query = {user_id: req.userId}
+        await users.updateOne(query, {$set : {teamStatus: true, team: teamId}})
+        .then( response => {
+            console.log("User has joined Team")
+            res.json(response)
+        }).catch(error =>{
+            next(error)
+        })
     })
-})
 
 router.put('/leavesTeam', isAuthorized, async(req,res) =>{
     

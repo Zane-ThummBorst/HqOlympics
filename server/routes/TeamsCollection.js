@@ -55,108 +55,138 @@ const isAuthorized = (req,res,next) =>{
 
 
 // this will come in with a token, we will check if they are a user, and also check if they are a captain
-router.post('/createTeam', isAuthorized, checkForBadWords, async(req,res) =>{
-    // teamlead : team leaders ID
-    // teammates: team members IDs, inculdes teamlead
-    const {teamName, username, countryCode} = req.body;
-    const userId = req.userId
-    const alphaNumList ="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-    let teamCode = ""
-    for(let i = 0; i < 6; i++){
-        teamCode += alphaNumList.charAt(Math.floor(Math.random() * alphaNumList.length))
-    }
+router.post('/createTeam',[
+    body("teamName").isString().trim().escape(),
+    body("username").isString().trim().escape(),
+    body("countryCode").isString().trim().escape()],
+    isAuthorized,
+    checkForBadWords,
+    async(req,res) =>{
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const {teamName, username, countryCode} = req.body;
+        const userId = req.userId
+        const alphaNumList ="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+        let teamCode = ""
+        for(let i = 0; i < 6; i++){
+            teamCode += alphaNumList.charAt(Math.floor(Math.random() * alphaNumList.length))
+        }
 
-    const teamId = crypto.randomUUID()
-    const teamDetails = {
-        team_id: teamId,
-        team_name: teamName,
-        team_lead: userId,
-        team_code: teamCode,
-        countryCode: countryCode,
-        teammates: [{userId: userId, username: username }]
-    }
+        const teamId = crypto.randomUUID()
+        const teamDetails = {
+            team_id: teamId,
+            team_name: teamName,
+            team_lead: userId,
+            team_code: teamCode,
+            countryCode: countryCode,
+            teammates: [{userId: userId, username: username }]
+        }
 
-    const db = client.db('BeerOlympics')
-    const Teams = db.collection('Teams')
+        const db = client.db('BeerOlympics')
+        const Teams = db.collection('Teams')
 
-    await Teams.insertOne(teamDetails)
-    .then( response =>{
-        console.log('Team has been created')
-        res.json({teamCode: teamCode, teamId: teamId})
-    })
-    .catch(err =>{
-        console.log('Team has failed to create')
-        res.json(err)
-    })
+        await Teams.insertOne(teamDetails)
+        .then( response =>{
+            console.log('Team has been created')
+            res.json({teamCode: teamCode, teamId: teamId})
+        })
+        .catch(err =>{
+            console.log('Team has failed to create')
+            res.json(err)
+        })
 })
 
-router.put('/joinTeam', isAuthorized, async(req,res) =>{
-    const {teamId, teamCode, username} = req.body;
-    const userId = req.userId;
+router.put('/joinTeam',[
+    body("teamId").isString().trim().escape(),
+    body("teamCode").isString().trim().escape(),
+    body("username").isString().trim().escape()],
+    isAuthorized,
+    async(req,res) =>{
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
 
-    const db = client.db('BeerOlympics')
-    const Teams = db.collection('Teams')
+        const {teamId, teamCode, username} = req.body;
+        const userId = req.userId;
 
-    let result = null;
+        const db = client.db('BeerOlympics')
+        const Teams = db.collection('Teams')
+
+        let result = null;
 
 
-    const query = {team_id: teamId}
-    await Teams.findOne(query)
-    .then(response =>{
-        code = response.team_code
-        result = teamCode === code ? true : false
-    })
-
-    if(result){
-        await Teams.updateOne(query, {$push: {teammates: {userId: userId, username: username }}})
+        const query = {team_id: teamId}
+        await Teams.findOne(query)
         .then(response =>{
-            console.log('Team has been given new teammate')
+            code = response.team_code
+            result = teamCode === code ? true : false
+        })
+
+        if(result){
+            await Teams.updateOne(query, {$push: {teammates: {userId: userId, username: username }}})
+            .then(response =>{
+                console.log('Team has been given new teammate')
+                res.json(response)
+            })
+            .catch(err =>{
+                console.log('Team has failed to accept teammate')
+                res.json(err);
+            })
+        }else{
+            res.status(405).json({error: 'invalid Team Code'})
+        }
+    })
+router.put('/removeFromTeam',
+    [body("teamId").isString().trim().escape()],
+    isAuthorized,
+    async(req,res) =>{
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const { teamId} = req.body;
+        const userId = req.userId;
+
+        const db = client.db('BeerOlympics')
+        const Teams = db.collection('Teams')
+
+        const query = {team_id: teamId}
+        await Teams.updateOne(query, {$pull: {teammates:{ userId: userId}}})
+        .then(response =>{
+            console.log('removed teammember')
             res.json(response)
         })
         .catch(err =>{
-            console.log('Team has failed to accept teammate')
+            console.log('failed to remove teammate')
             res.json(err);
         })
-    }else{
-        res.status(405).json({error: 'invalid Team Code'})
-    }
-})
-router.put('/removeFromTeam', isAuthorized, async(req,res) =>{
-    const { teamId, teamCode} = req.body;
-    const userId = req.userId;
-
-    const db = client.db('BeerOlympics')
-    const Teams = db.collection('Teams')
-
-    const query = {team_id: teamId}
-    await Teams.updateOne(query, {$pull: {teammates:{ userId: userId}}})
-    .then(response =>{
-        console.log('removed teammember')
-        res.json(response)
     })
-    .catch(err =>{
-        console.log('failed to remove teammate')
-        res.json(err);
-    })
+// should be authorized?
+router.post('/deleteTeam', [body("teamId").isString().trim().escape()],
+    async(req,res) =>{
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const {teamId} = req.body;
 
-})
-router.post('/deleteTeam', async(req,res) =>{
-    const {teamId} = req.body;
+        const db = client.db('BeerOlympics')
+        const Teams = db.collection('Teams')
 
-    const db = client.db('BeerOlympics')
-    const Teams = db.collection('Teams')
+        const query = {team_id: teamId}
+        await Teams.deleteOne(query)
+        .then(response =>{
+            console.log('successfully deleted a team')
+            res.json(response)
 
-    const query = {team_id: teamId}
-    await Teams.deleteOne(query)
-    .then(response =>{
-        console.log('successfully deleted a team')
-        res.json(response)
-
-    })
-    .catch(err =>{
-        console.log('failed to delete team')
-        res.json(err)
-    })
+        })
+        .catch(err =>{
+            console.log('failed to delete team')
+            res.json(err)
+        })
 })
 
 router.put('/updateTeam', async(req,res) =>{
