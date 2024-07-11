@@ -1,6 +1,5 @@
-import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Modal, Typography, Box, TextField, Select, Radio, MenuItem, InputLabel, FormControl, FormControlLabel, RadioGroup, Button} from '@mui/material'
+import{useContext} from 'react';
+import {Modal, Typography, Box, Button} from '@mui/material'
 import {MyContext} from '../MyContext';
 import { useNavigate } from "react-router-dom";
 
@@ -37,20 +36,19 @@ const ModalCode = () =>{
     return (
         <>
             <Modal
-            open ={open}
-            onClose={() => {}}
-            >
-            <Box sx={style}>
-                <Typography fontWeight={'bold'} fontFamily={'PilsenPlakat'} id="modal-modal-title" variant="h4" component="h2">
-                    SAVE THIS!
-                </Typography>
-                <Typography sx={{mt: 3}} fontFamily={'PilsenPlakat'} id="modal-modal-title" variant="h6" component="h3">
-                    Your Team Code: {teamCode}
-                </Typography>
-                <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center', }}>
-                    <Button sx={{fontFamily : 'PilsenPlakat'}} onClick={handleClose}>Confirm</Button>
+                open ={open}
+                onClose={() => {}}>
+                <Box sx={style}>
+                    <Typography fontWeight={'bold'} fontFamily={'PilsenPlakat'} id="modal-modal-title" variant="h4" component="h2">
+                        SAVE THIS!
+                    </Typography>
+                    <Typography sx={{mt: 3}} fontFamily={'PilsenPlakat'} id="modal-modal-title" variant="h6" component="h3">
+                        Your Team Code: {teamCode}
+                    </Typography>
+                    <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center', }}>
+                        <Button sx={{fontFamily : 'PilsenPlakat'}} onClick={handleClose}>Confirm</Button>
+                    </Box>
                 </Box>
-            </Box>
             </Modal>
         </>
     )

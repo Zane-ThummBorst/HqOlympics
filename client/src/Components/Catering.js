@@ -1,10 +1,5 @@
-import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Select, Autocomplete, Button, Typography} from '@mui/material'
-import {MyContext} from '../MyContext';
-import countries from './CountryData';
-import { useNavigate } from "react-router-dom";
-import ModalCode from './ModalCode';
+
+import {Box, Typography} from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
 import branVenmo from '../assets/images/branVenmo.jpg'
 
@@ -28,35 +23,36 @@ const Catering = () =>{
                 }}
                 >
 
-                <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
-                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
-                            Want Grub?
-                    </Typography>
-                </Box>
-                  <Box sx={{ mt:3, display: 'flex', justifyContent: 'center'}}>
-                    <img src={branVenmo} style={{width: '300px', height: '300px', borderRadius: '1em'}}/>
-                  </Box>
+                    <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
+                        <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
+                                Want Grub?
+                        </Typography>
+                    </Box>
+
+                    <Box sx={{ mt:3, display: 'flex', justifyContent: 'center'}}>
+                        <img src={branVenmo} style={{width: '300px', height: '300px', borderRadius: '1em'}}/>
+                    </Box>
 
 
-                  <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
-                  <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                       *$5.00 for Beer
-                    </Typography>
-                 </Box>
-                
-                <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
-                <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                       *$5.00 for Pizza
-                    </Typography>
-                </Box>
-                
-                <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
-                <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                       *Feel free to BYO!
-                    </Typography>
-                </Box>
-                  </Grid>
-                  <Grid xs/>
+                    <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
+                        <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                        *$5.00 for Beer
+                        </Typography>
+                    </Box>
+                    
+                    <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
+                        <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                        *$5.00 for Pizza
+                        </Typography>
+                    </Box>
+                    
+                    <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
+                        <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                        *Feel free to BYO!
+                        </Typography>
+                    </Box>
+                </Grid>
+                <Grid xs/>
             </Grid>
         </>
     )

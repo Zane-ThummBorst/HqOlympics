@@ -1,13 +1,10 @@
-import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Select, Radio, MenuItem, InputLabel, FormControl, FormControlLabel, RadioGroup, Button} from '@mui/material'
+
+import{useContext} from 'react';
+import {Box, TextField, InputLabel, Button} from '@mui/material'
 import {MyContext} from '../MyContext';
 
 const MiscForm = () =>{
-
-    const {additionalNotes, setAdditionalNotes, handlePrevious, HandleSubmission} = useContext(MyContext)
-
-    
+    const {setAdditionalNotes, handlePrevious, HandleSubmission} = useContext(MyContext)
 
     const handleAdditionalNotes = (event) =>{
         setAdditionalNotes(event.target.value)
@@ -15,7 +12,8 @@ const MiscForm = () =>{
     
     return(
         <>
-             <InputLabel sx = {{fontFamily:'PilsenPlakat'}}>Accomodations? Food Allergies? Etc?</InputLabel>                
+            <InputLabel sx = {{fontFamily:'PilsenPlakat'}}>Accomodations? Food Allergies? Etc?</InputLabel>
+
             <TextField
             fullWidth
             sx={{mt:3}}
@@ -23,7 +21,8 @@ const MiscForm = () =>{
             InputProps={{style: {fontFamily:'PilsenPlakat'}}}
             InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
             onChange={handleAdditionalNotes} 
-            label="additonal Notes Section"></TextField>
+            label="additonal Notes Section"/>
+
             <Box sx={{mt: 3}} display="flex" justifyContent="space-between">
                 <Button sx = {{fontFamily:'PilsenPlakat'}} onClick={handlePrevious}>PREV</Button>
                 <Button sx = {{fontFamily:'PilsenPlakat'}} onClick={HandleSubmission}>SUBMIT</Button>

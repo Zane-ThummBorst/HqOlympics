@@ -1,15 +1,13 @@
 import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Select, Autocomplete, Button} from '@mui/material'
+import{ useState, useContext} from 'react';
+import {Box, TextField, Autocomplete, Button} from '@mui/material'
 import {MyContext} from '../MyContext';
 import countries from './CountryData';
-import { useNavigate } from "react-router-dom";
 import ModalCode from './ModalCode';
 import Grid from '@mui/material/Unstable_Grid2'
 
 
 const TeamCreationForm = () =>{
-    const navigate = useNavigate();
     const [countryCode, setCountryCode] = useState('us')
     const [teamCode, setTeamCode] = useState('')
     const [countryCodeError, setCountryCodeError] = useState(null)
@@ -18,7 +16,6 @@ const TeamCreationForm = () =>{
 
     const {captain, username, teamStatus, teamCreationStatus, setTeamCreationStatus} = useContext(MyContext)
 
-    // const [captain, setCaptain] = useState(true)
     const [teamName, setTeamName] = useState('')
     const [teamNameError, setTeamNameError] = useState(null)
     const [teamNameErrorStatus, setTeamNameErrorStatus] = useState('')
@@ -39,10 +36,6 @@ const TeamCreationForm = () =>{
             setCountryCodeErrorStatus('')
             return true
         }
-    }
-
-    const handleOpen = () =>{
-        setOpen(true)
     }
 
     const handleTeamName = (event) =>{
@@ -83,7 +76,6 @@ const TeamCreationForm = () =>{
                 team_id = response.data.teamId
                 setTeamCode(response.data.teamCode)
                 setOpen(true)
-                // navigate('/')
             })
             .catch( error =>{
                 console.log(error)
@@ -111,6 +103,7 @@ const TeamCreationForm = () =>{
         <MyContext.Provider value = {{open,setOpen,teamCode}}>
             <ModalCode/>
         </MyContext.Provider>
+
         <Grid
             container
             justifyContent="center"
@@ -127,36 +120,33 @@ const TeamCreationForm = () =>{
                     borderColor: 'grey'
                 }}
                 >
-                  <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-                  <img src={`https://flagcdn.com/w640/${countryCode ? countryCode : 'us'}.webp`}
-                  style={{ width: '300px', height: '200px' }}/>
-                  </Box>
-                <Autocomplete fullWidth
-                options={countries}
-                onChange={handleCountry}
-                renderInput={(params) => <TextField {...params} InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}} label="Countries"/>}
-                sx={{
-                    mt:3
-                 }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+                        <img src={`https://flagcdn.com/w640/${countryCode ? countryCode : 'us'}.webp`}
+                            style={{ width: '300px', height: '200px' }}/>
+                    </Box>
+                    <Autocomplete fullWidth
+                    options={countries}
+                    onChange={handleCountry}
+                    renderInput={(params) => <TextField {...params} InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}} label="Countries"/>}
+                    sx={{
+                        mt:3
+                    }}>
 
-                </Autocomplete>
-                <TextField fullWidth
-                label='Team Name'
-                value={teamName}
-                onChange={handleTeamName}
-                error={teamNameError}
-                helperText={teamNameErrorStatus}
-                InputProps={{style: {fontFamily:'PilsenPlakat', }}}
-                InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
-                sx={{
-                    mt: 3}}
-                ></TextField>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', }}>
-                    <Button sx = {{fontFamily:'PilsenPlakat'}} disabled={!captain || teamStatus} onClick={handleSubmission}>Submit</Button>
-                </Box>
+                    </Autocomplete>
+                    <TextField fullWidth
+                        label='Team Name'
+                        value={teamName}
+                        onChange={handleTeamName}
+                        error={teamNameError}
+                        helperText={teamNameErrorStatus}
+                        InputProps={{style: {fontFamily:'PilsenPlakat', }}}
+                        InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
+                        sx={{mt: 3}}/>
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', }}>
+                        <Button sx = {{fontFamily:'PilsenPlakat'}} disabled={!captain || teamStatus} onClick={handleSubmission}>Submit</Button>
+                    </Box>
                 </Grid>
                 <Grid xs/>
-                
         </Grid>
         </>
     )

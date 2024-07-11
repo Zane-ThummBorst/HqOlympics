@@ -1,13 +1,11 @@
-import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, Grid ,TextField, Select, Radio, MenuItem, InputLabel, FormControl, FormControlLabel, RadioGroup, Button, FormHelperText, Typography} from '@mui/material'
+import{ useState, useContext} from 'react';
+import {Box, TextField, Radio, MenuItem, InputLabel, FormControl, FormControlLabel, RadioGroup, Button, FormHelperText, Typography} from '@mui/material'
 import {MyContext} from '../MyContext';
 
 const ParticipationForm = () =>{
 
     const {motive, setMotive, sobriety, setSobriety, handlePrevious, formPage, setFormPage} = useContext(MyContext)
 
-    //needs to be pulled into login
     const [sobrietyChoice, setSobrietyChoice] = useState(null);
     
     const [motiveError, setMotiveError] = useState(null)
@@ -65,20 +63,20 @@ const ParticipationForm = () =>{
 
 
             <FormControl fullWidth error={motiveError}>
-            <TextField
-            value={motive}
-            select
-            onChange={ handleMotive }
-            label = 'Motive'
-            InputProps={{style: {fontFamily:'PilsenPlakat'}}}
-            InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
-            sx={{
-                mt: 3}} 
-            >
-                <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Participate">Particpate in Beer Olympic Games</MenuItem>
-                <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Hang Out">Hang out and watch</MenuItem>
-            </TextField>
-            <FormHelperText >{motiveError ? motiveErrorStatus : ''}</FormHelperText>
+                <TextField
+                value={motive}
+                select
+                onChange={ handleMotive }
+                label = 'Motive'
+                InputProps={{style: {fontFamily:'PilsenPlakat'}}}
+                InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
+                sx={{
+                    mt: 3}} 
+                >
+                    <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Participate">Particpate in Beer Olympic Games</MenuItem>
+                    <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Hang Out">Hang out and watch</MenuItem>
+                </TextField>
+                <FormHelperText >{motiveError ? motiveErrorStatus : ''}</FormHelperText>
             </FormControl>
 
             <InputLabel sx = {{fontFamily:'PilsenPlakat', mt: 3}} >Sobriety Status</InputLabel>
@@ -93,10 +91,10 @@ const ParticipationForm = () =>{
             </FormControl>
 
 
-                    <Box display="flex" justifyContent="space-between">
-                    <Button  sx = {{fontFamily:'PilsenPlakat'}} onClick={handlePrevious}>PREV</Button>
-                    <Button   sx = {{fontFamily:'PilsenPlakat'}} onClick={handleNext}>NEXT</Button>
-                    </Box>
+            <Box display="flex" justifyContent="space-between">
+                <Button  sx = {{fontFamily:'PilsenPlakat'}} onClick={handlePrevious}>PREV</Button>
+                <Button   sx = {{fontFamily:'PilsenPlakat'}} onClick={handleNext}>NEXT</Button>
+            </Box>
         </>
     )
 }
