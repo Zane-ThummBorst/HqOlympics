@@ -19,12 +19,13 @@ const checkForBadWords = (req, res, next) => {
     const checkBadWordsInObject = (obj) => {
       for (const key in obj) {
         if (typeof obj[key] === 'string') {
-          const containsBadWord = filter.isProfane(obj[key]);
+            
+          const containsBadWord = filter.isProfane(obj[key].normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
           if (containsBadWord) {
-            obj[key] = filter.clean(obj[key]);
+            obj[key] = filter.clean(obj[key].normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
           }
         } else if (typeof obj[key] === 'object') {
-          checkBadWordsInObject(obj[key]);
+          checkBadWordsInObject(obj[key].normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
         }
       }
     };
@@ -38,7 +39,6 @@ const checkForBadWords = (req, res, next) => {
 const isAuthorized = (req,res,next) =>{
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
-    console.log(token)
     if (!token) {
         return res.status(401).json({ error: 'Access denied' });
     }
@@ -147,7 +147,6 @@ router.post('/deleteTeam', async(req,res) =>{
     const Teams = db.collection('Teams')
 
     const query = {team_id: teamId}
-    console.log(teamId)
     await Teams.deleteOne(query)
     .then(response =>{
         console.log('successfully deleted a team')
@@ -165,7 +164,6 @@ router.put('/updateTeam', async(req,res) =>{
 })
 
 router.get('/getAllTeams', async(req,res) =>{
-    console.log(process.env.MONGO_URI)
     const db = client.db('BeerOlympics')
     const Teams = db.collection('Teams')
     await Teams.find({}).toArray()
