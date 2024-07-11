@@ -11,8 +11,6 @@ const saltRounds = 10;
 require('dotenv').config();
 const client = new MongoClient(process.env.MONGO_URI, { monitorCommands: true })
 
-
-
 const isAuthorized = (req,res,next) =>{
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -100,13 +98,12 @@ router.post('/createUser',[
             const users = db.collection('Users')
             await users.insertOne(user)
             .then((response) =>{
-                const token = jwt.sign({ userId: userId }, process.env.SECRET_KEY, {
-                    expiresIn: '1h',
-                });
-                console.log(token);
+                const token = jwt.sign({ userId: userId }, process.env.SECRET_KEY);
+                console.log('User Created')
                 res.json(token)
             }).catch(error =>{
-                res.json("issues")
+                console.log("Failed to create user")
+                res.json("Cannot process user at this time")
             })
 
 }])
@@ -159,9 +156,8 @@ router.post('/loginUser', async(req,res)=>{
         let passwordHash = response.password;
         bcrypt.compare(password, passwordHash, (err, result) =>{
             if(result){
-                const token = jwt.sign({ userId: user_id }, process.env.SECRET_KEY, {
-                    expiresIn: '1h',
-                });
+                const token = jwt.sign({ userId: user_id }, process.env.SECRET_KEY );
+                console.log("user successfully logged in")
                 res.json(token)
             }else{
                 res.status(401).send({ error: "password was Incorrect" });
@@ -180,6 +176,7 @@ router.put('/joinsTeam', isAuthorized, async(req,res) =>{
     const query = {user_id: req.userId}
     await users.updateOne(query, {$set : {teamStatus: true, team: teamId}})
     .then( response => {
+        console.log("User has joined Team")
         res.json(response)
     }).catch(error =>{
         next(error)
@@ -193,6 +190,7 @@ router.put('/leavesTeam', isAuthorized, async(req,res) =>{
     const query = {user_id: req.userId}
     await users.updateOne(query, {$set : {teamStatus: false, team: null}})
     .then( response => {
+        console.log("User has left Team")
         res.json(response)
     }).catch(error =>{
         next(error)

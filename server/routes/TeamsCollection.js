@@ -59,9 +59,11 @@ router.post('/createTeam', isAuthorized, async(req,res) =>{
 
     await Teams.insertOne(teamDetails)
     .then( response =>{
+        console.log('Team has been created')
         res.json({teamCode: teamCode, teamId: teamId})
     })
     .catch(err =>{
+        console.log('Team has failed to create')
         res.json(err)
     })
 })
@@ -86,9 +88,11 @@ router.put('/joinTeam', isAuthorized, async(req,res) =>{
     if(result){
         await Teams.updateOne(query, {$push: {teammates: {userId: userId, username: username }}})
         .then(response =>{
+            console.log('Team has been given new teammate')
             res.json(response)
         })
         .catch(err =>{
+            console.log('Team has failed to accept teammate')
             res.json(err);
         })
     }else{
@@ -105,9 +109,11 @@ router.put('/removeFromTeam', isAuthorized, async(req,res) =>{
     const query = {team_id: teamId}
     await Teams.updateOne(query, {$pull: {teammates:{ userId: userId}}})
     .then(response =>{
+        console.log('removed teammember')
         res.json(response)
     })
     .catch(err =>{
+        console.log('failed to remove teammate')
         res.json(err);
     })
 
@@ -122,9 +128,12 @@ router.post('/deleteTeam', async(req,res) =>{
     console.log(teamId)
     await Teams.deleteOne(query)
     .then(response =>{
+        console.log('successfully deleted a team')
         res.json(response)
+
     })
     .catch(err =>{
+        console.log('failed to delete team')
         res.json(err)
     })
 })
@@ -139,9 +148,10 @@ router.get('/getAllTeams', async(req,res) =>{
     const Teams = db.collection('Teams')
     await Teams.find({}).toArray()
     .then(response =>{
+        console.log("successfully retrieved teams")
         res.json(response)
     }).catch(error => {
-        console.log("its so over")
+        console.log("Failed to retrieve teams")
         res.json(error)
 
     })

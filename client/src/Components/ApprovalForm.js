@@ -1,11 +1,13 @@
-import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Typography, Radio, MenuItem, InputLabel, FormControl, FormHelperText, FormControlLabel, RadioGroup, Button} from '@mui/material'
+
+import{useState, useContext} from 'react';
+import {Box, TextField, Typography, Radio, MenuItem, InputLabel, FormControl, FormHelperText,
+        FormControlLabel, RadioGroup, Button} from '@mui/material'
 import {MyContext} from '../MyContext';
 
 const ApprovalForm = () =>{
 
-    const {approval, setApproval, extraCuricularRole, setExtraCuricularRole, handlePrevious, formPage, setFormPage} = useContext(MyContext)
+    const {approval, setApproval, extraCuricularRole, setExtraCuricularRole,
+           handlePrevious, formPage, setFormPage} = useContext(MyContext)
     const [approvalChoice, setApprovalChoice] = useState(null);
 
     const [approvalError, setApprovalError] = useState(null)
@@ -74,22 +76,22 @@ const ApprovalForm = () =>{
             </FormControl>
 
             <FormControl fullWidth error={extraCuricularRoleError}>
-            <TextField
-            select
-            value={extraCuricularRole}
-            onChange={ handleRole }
-            label='Want a role at the party?'
-            InputProps={{style: {fontFamily:'PilsenPlakat'}}}
-            InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
-            sx={{
-                mt: 3}} 
-            >
-                <MenuItem value="Ref">Referee</MenuItem>
-                <MenuItem value="Film">Filming</MenuItem>
-                <MenuItem value="Beer Drinker">Beer Drinker</MenuItem>
-                <MenuItem value="Nothing">Nothing</MenuItem>
-            </TextField>
-            <FormHelperText>{extraCuricularRoleError ? extraCuricularRoleErrorStatus : ''}</FormHelperText>
+                <TextField
+                select
+                value={extraCuricularRole}
+                onChange={ handleRole }
+                label='Want a role at the party?'
+                InputProps={{style: {fontFamily:'PilsenPlakat'}}}
+                InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
+                sx={{
+                    mt: 3}} 
+                >
+                    <MenuItem value="Ref">Referee</MenuItem>
+                    <MenuItem value="Film">Filming</MenuItem>
+                    <MenuItem value="Beer Drinker">Beer Drinker</MenuItem>
+                    <MenuItem value="Nothing">Nothing</MenuItem>
+                </TextField>
+                <FormHelperText>{extraCuricularRoleError ? extraCuricularRoleErrorStatus : ''}</FormHelperText>
             </FormControl>
             <InputLabel sx = {{fontSize:'12px', mb: 3, fontFamily:'PilsenPlakat', whiteSpace: 'pre-wrap'}} > *Can Have a role AND participate in games!</InputLabel>
             <Box display="flex" justifyContent="space-between">

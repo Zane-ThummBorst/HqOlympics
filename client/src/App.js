@@ -1,17 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
-import LoginForm from './Components/LoginForm';
-import TeamCreationForm from './Components/TeamCreationForm';
-import Login from './Components/Login';
-import TeamPage from './Components/TeamPage';
-import TempModal from './Components/TempModal';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 import { MyContext } from './MyContext';
 import {useEffect, useState} from 'react';
 import axios from 'axios'
-import Logout from './Components/Logout';
-import { Button, Toolbar, AppBar, Box} from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 function App() {
 
@@ -45,7 +37,7 @@ function App() {
                 }
             })
             .catch(error =>{
-                console.log(error);
+                // nothintg
             })
 
             if(team){
@@ -71,7 +63,6 @@ function App() {
                 })
             }
         }else{
-          console.log('balls')
           setCaptain(null);
           setUsername(null);
           setUserId(null);

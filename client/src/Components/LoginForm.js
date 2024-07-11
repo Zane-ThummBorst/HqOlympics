@@ -1,6 +1,5 @@
 import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Select, Radio, MenuItem, InputLabel, FormControl, FormControlLabel, RadioGroup, Button} from '@mui/material'
+import{useState, useContext} from 'react';
 import {MyContext} from '../MyContext';
 import UserInfoForm from './UserInfoForm';
 import CaptainStatusForm from './CaptainStatusForm';
@@ -24,27 +23,21 @@ const LoginForm = () =>{
     const [approval, setApproval] = useState(null);
     const [extraCuricularRole, setExtraCuricularRole] = useState('');
     const [additionalNotes, setAdditionalNotes] = useState('');
-
     const [formPage, setFormPage] = useState(0)
-
-
-
-    // before error checks, seperate each part of the form into seperate components
-
 
     const handlePrevious = () =>{
         let new_formPage = formPage;
         setFormPage(new_formPage - 1)
     }
-    const HandleSubmission = async() =>{
 
+    const HandleSubmission = async() =>{
         const body = {username: username,
             password: password,
-            motive: motive, // playing games, chillin?
+            motive: motive, 
             captain: captain, 
-            wayToContact: wayToContact, // optional based on captain value (can be phone or email so validate within route)
+            wayToContact: wayToContact,
             sobriety: sobriety, 
-            arrival: "noon", //on time, later? time frame? from to?
+            arrival: "noon",
             approval: approval,
             extraCuricularRole: extraCuricularRole,
             additionalNotes: additionalNotes,
@@ -65,7 +58,6 @@ const LoginForm = () =>{
 
     return(
         <>
-
             <Grid
             container
             justifyContent="center"

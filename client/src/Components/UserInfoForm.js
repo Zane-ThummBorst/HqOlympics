@@ -1,6 +1,6 @@
-import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Select, Radio, MenuItem, InputLabel, FormControl, FormControlLabel, RadioGroup, Button} from '@mui/material'
+
+import{useState, useContext} from 'react';
+import {Box, TextField, Button} from '@mui/material'
 import {MyContext} from '../MyContext';
 
 const UserInfoForm = () =>{
@@ -96,8 +96,7 @@ const UserInfoForm = () =>{
             InputProps={{style: {fontFamily:'PilsenPlakat'}}}
             InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
             onChange={handleUsername}
-            sx={{
-                mt: 3}} />
+            sx={{mt: 3}} />
 
             <TextField 
             fullWidth
@@ -110,8 +109,7 @@ const UserInfoForm = () =>{
             InputProps={{style: {fontFamily:'PilsenPlakat'}}}
             InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
             onChange={handlePassword}
-            sx={{
-                mt: 3}} />
+            sx={{ mt: 3}} />
 
             <TextField fullWidth 
             margin="normal"
@@ -123,8 +121,7 @@ const UserInfoForm = () =>{
             InputProps={{style: {fontFamily:'PilsenPlakat'}}}
             InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
             onChange={handleRetypePassword}
-            sx={{
-                mt: 3}} />
+            sx={{mt: 3}} />
             
             <Box  display="flex" justifyContent="flex-end">
                 <Button sx={{fontFamily:'PilsenPlakat'}} onClick={handleNext}>NEXT</Button>

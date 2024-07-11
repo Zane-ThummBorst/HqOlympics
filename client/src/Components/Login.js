@@ -1,6 +1,6 @@
 import axios from 'axios';
-import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Select, Radio, MenuItem, InputLabel, FormControl, FormControlLabel, RadioGroup, Button} from '@mui/material'
+import{ useState, useContext} from 'react';
+import {Box, TextField, Button} from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2'
 import {MyContext} from '../MyContext';
 import { useNavigate } from "react-router-dom";
@@ -99,30 +99,29 @@ const Login = () =>{
                     borderColor: 'grey'
                 }}
                 >
-                <TextField fullWidth margin="normal"
-                    value={username}
-                    error={usernameError}
-                    helperText={usernameError ? usernameErrorStatus : ''}
-                    label='username'
-                    onChange={handleUsername}
-                    InputProps={{style: {fontFamily:'PilsenPlakat'}}}
-                    InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
-                    />
+                    <TextField fullWidth margin="normal"
+                        value={username}
+                        error={usernameError}
+                        helperText={usernameError ? usernameErrorStatus : ''}
+                        label='username'
+                        onChange={handleUsername}
+                        InputProps={{style: {fontFamily:'PilsenPlakat'}}}
+                        InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
+                        />
 
-                <TextField fullWidth margin="normal"
-                    value={password}
-                    error={passwordError}
-                    helperText={passwordError ? passwordErrorStatus : ''}
-                    InputProps={{style: {fontFamily:'PilsenPlakat'}}}
-                    InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
-                    label='password'
-                    type="password"
-                onChange={handlePassword}/>
+                    <TextField fullWidth margin="normal"
+                        value={password}
+                        error={passwordError}
+                        helperText={passwordError ? passwordErrorStatus : ''}
+                        InputProps={{style: {fontFamily:'PilsenPlakat'}}}
+                        InputLabelProps={{style: {fontFamily:'PilsenPlakat'}}}
+                        label='password'
+                        type="password"
+                    onChange={handlePassword}/>
 
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', }}>
-                    <Button onClick={handleSubmission}>Login</Button>
-                </Box>
-
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', }}>
+                        <Button onClick={handleSubmission}>Login</Button>
+                    </Box>
             </Grid>
             <Grid xs/>
             </Grid>
