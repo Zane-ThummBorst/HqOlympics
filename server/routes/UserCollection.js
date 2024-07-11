@@ -6,10 +6,32 @@ const {MongoClient} = require('mongodb');
 const { param, body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const Filter = require('bad-words')
+const filter = new Filter();
 const saltRounds = 10;
 
 require('dotenv').config();
 const client = new MongoClient(process.env.MONGO_URI, { monitorCommands: true })
+
+// https://medium.com/@ntsendifor/cultivating-respect-and-safety-in-educompanion-au-e86bc8610f0c
+const checkForBadWords = (req, res, next) => {
+    const checkBadWordsInObject = (obj) => {
+      for (const key in obj) {
+        if (typeof obj[key] === 'string') {
+          const containsBadWord = filter.isProfane(obj[key]);
+          if (containsBadWord) {
+            obj[key] = filter.clean(obj[key]);
+          }
+        } else if (typeof obj[key] === 'object') {
+          checkBadWordsInObject(obj[key]);
+        }
+      }
+    };
+  
+    checkBadWordsInObject(req.body);
+  
+    next();
+  };
 
 const isAuthorized = (req,res,next) =>{
     const authHeader = req.headers['authorization'];
@@ -54,6 +76,7 @@ router.post('/createUser',[
     body("sobriety").isBoolean(),
     body("approval").isBoolean(),
     body("extraCuricularRole").isString().trim().escape(),
+    checkForBadWords,
     async(req,res) =>{
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -108,7 +131,7 @@ router.post('/createUser',[
 
 }])
 
-router.post('/updateUser', isAuthorized, async(req,res) =>{
+router.post('/updateUser', isAuthorized, checkForBadWords, async(req,res) =>{
     const {
         username,
         email,

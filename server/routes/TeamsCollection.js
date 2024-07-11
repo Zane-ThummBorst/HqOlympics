@@ -7,10 +7,32 @@ const { param, body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const saltRounds = 10;
+const Filter = require('bad-words')
+const filter = new Filter();
 const dotenv = require('dotenv')
 require('dotenv').config();
 
 const client = new MongoClient(process.env.MONGO_URI, { monitorCommands: true })
+
+// https://medium.com/@ntsendifor/cultivating-respect-and-safety-in-educompanion-au-e86bc8610f0c
+const checkForBadWords = (req, res, next) => {
+    const checkBadWordsInObject = (obj) => {
+      for (const key in obj) {
+        if (typeof obj[key] === 'string') {
+          const containsBadWord = filter.isProfane(obj[key]);
+          if (containsBadWord) {
+            obj[key] = filter.clean(obj[key]);
+          }
+        } else if (typeof obj[key] === 'object') {
+          checkBadWordsInObject(obj[key]);
+        }
+      }
+    };
+  
+    checkBadWordsInObject(req.body);
+  
+    next();
+  };
 
 
 const isAuthorized = (req,res,next) =>{
@@ -33,7 +55,7 @@ const isAuthorized = (req,res,next) =>{
 
 
 // this will come in with a token, we will check if they are a user, and also check if they are a captain
-router.post('/createTeam', isAuthorized, async(req,res) =>{
+router.post('/createTeam', isAuthorized, checkForBadWords, async(req,res) =>{
     // teamlead : team leaders ID
     // teammates: team members IDs, inculdes teamlead
     const {teamName, username, countryCode} = req.body;
