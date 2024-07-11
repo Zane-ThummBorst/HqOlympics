@@ -1,6 +1,6 @@
 import axios from 'axios';
 import{useEffect, useState, useContext} from 'react';
-import {Box, TextField, Select, Autocomplete, Button} from '@mui/material'
+import {Box, TextField, Select, Autocomplete, Button, Typography} from '@mui/material'
 import {MyContext} from '../MyContext';
 import countries from './CountryData';
 import { useNavigate } from "react-router-dom";
@@ -27,9 +27,23 @@ const Catering = () =>{
                     borderColor: 'grey'
                 }}
                 >
+                <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
+                        Want Grub?
+                </Typography>
                   <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-                  <img src={branVenmo} style={{width: '300px', height: '300px'}}/>
+                    <img src={branVenmo} style={{width: '300px', height: '300px', borderRadius: '1em'}}/>
                   </Box>
+                  <Box sx={{mt:3}}>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                       *$5.00 for Beer
+                    </Typography>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                       *$5.00 for Pizza
+                    </Typography>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
+                       *$Feel free for BYO!
+                    </Typography>
+                </Box>
                   </Grid>
                   <Grid xs/>
             </Grid>

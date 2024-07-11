@@ -48,7 +48,7 @@ const FAQ = () =>{
                         When is this thing?
                     </Typography>
                     <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                        August 10th. In the event of weather, our rain day is August 23rd.
+                        August 10th at 2:00 PM EST. In the event of weather, our rain day is August 17th.
                     </Typography>
                 </Box>
 
@@ -82,10 +82,20 @@ const FAQ = () =>{
 
                 <Box sx={{mt:3}}>
                     <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
+                        What if I just want to come and not play games?
+                    </Typography>
+                    <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
+                        That's all Good! 
+                    </Typography>
+                </Box>
+
+
+                <Box sx={{mt:3}}>
+                    <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
                         Food?
                     </Typography>
                     <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                        There will be food available to the people who buy in :)
+                        Refer to catering page.
                     </Typography>
                 </Box>
 
@@ -103,7 +113,7 @@ const FAQ = () =>{
                         Why can't I create a team?
                     </Typography>
                     <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                        There are a few reasons for why youy may not be able to create a team. Only captains can create teams and cannot join teams. Each captain can create one team.
+                        There are a few reasons for why you may not be able to create a team. Only captains can create teams and cannot join teams. Each captain can create one team.
                     </Typography>
                 </Box>
 
