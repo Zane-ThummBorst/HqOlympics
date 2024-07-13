@@ -26,7 +26,7 @@ const FAQ = () =>{
                             What is this thing?
                         </Typography>
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
-                            In commemoration of The 2024 Olympics, HQ has decided it'd be best to host our own Olympic style event complete with its own set of games revolving around booze.
+                            In commemoration of The 2024 Olympics, HQ has decided it'd be best to host our own Olympic style event complete with its own set of games!
                         </Typography>
                     </Box>
 
@@ -44,17 +44,17 @@ const FAQ = () =>{
                             When is this thing?
                         </Typography>
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                            August 10th at 2:00 PM EST. In the event of weather, our rain day is August 17th.
+                            August 10th at 2:00 PM EST. In the event of weather, our rain date is August 17th.
                         </Typography>
                     </Box>
 
 
                     <Box sx={{mt:3}}>
                         <Typography fontFamily={'PilsenPlakat'} variant='h5' component='h6'>
-                            Can I come and participate in games even if I don't want to drink?
+                            Can I come and participate in games even if I registered a certain way?
                         </Typography>
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
-                            You sure can!
+                            The form is there to get an idea of what we need for the party. Anyone can participate in games!
                         </Typography>
                     </Box>
 
@@ -100,7 +100,7 @@ const FAQ = () =>{
                             What if I have questions or want to reach out about something?
                         </Typography>
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                            feel free to shoot us anything on your mind at hqbeerolympics@gmail.com
+                            feel free to shoot us anything on your mind at zane58989@gmail.com
                         </Typography>
                     </Box>
 

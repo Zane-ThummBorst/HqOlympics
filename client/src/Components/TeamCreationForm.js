@@ -92,7 +92,6 @@ const TeamCreationForm = () =>{
                     })
                     .then(response =>{
                         let new_teamCreationStatus = teamCreationStatus
-                        console.log(teamCreationStatus)
                         setTeamCreationStatus(!new_teamCreationStatus);
                     })
             }

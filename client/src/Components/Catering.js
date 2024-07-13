@@ -36,7 +36,7 @@ const Catering = () =>{
 
                     <Box sx={{mt:1, display: 'flex', justifyContent: 'center'}}>   
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                        *$5.00 for Beer
+                        *$5.00 for Drinks
                         </Typography>
                     </Box>
                     

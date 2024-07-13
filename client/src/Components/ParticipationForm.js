@@ -73,19 +73,19 @@ const ParticipationForm = () =>{
                 sx={{
                     mt: 3}} 
                 >
-                    <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Participate">Particpate in Beer Olympic Games</MenuItem>
+                    <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Participate">Particpate in HQ Olympic Games</MenuItem>
                     <MenuItem sx = {{fontFamily:'PilsenPlakat'}} value="Hang Out">Hang out and watch</MenuItem>
                 </TextField>
                 <FormHelperText >{motiveError ? motiveErrorStatus : ''}</FormHelperText>
             </FormControl>
 
-            <InputLabel sx = {{fontFamily:'PilsenPlakat', mt: 3}} >Sobriety Status</InputLabel>
+            <InputLabel sx = {{fontFamily:'PilsenPlakat', mt: 3}} >Drinking Status</InputLabel>
             <FormControl error ={sobrietyError}>
                 <RadioGroup
                     value = {sobrietyChoice}
                     onChange={handleSobriety}>
                     <FormControlLabel value="yes" control={<Radio />} label={<Typography fontFamily={'PilsenPlakat'}>Sober</Typography>} />
-                    <FormControlLabel value="No" control={<Radio />} label={<Typography fontFamily={'PilsenPlakat'}>Olympian</Typography>} />                      
+                    <FormControlLabel value="No" control={<Radio />} label={<Typography fontFamily={'PilsenPlakat'}>Cheers!</Typography>} />                      
                 </RadioGroup>
                 <FormHelperText>{sobrietyError ? sobrietyErrorStatus : ''}</FormHelperText>
             </FormControl>

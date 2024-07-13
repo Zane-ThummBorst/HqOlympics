@@ -45,7 +45,7 @@ const NavBar = () =>{
                     <Toolbar>
 
                         <Typography fontFamily={'OldLondon'} color='#fffbe0' variant='h4' component='h2' sx={{flexGrow: 1}}>
-                            Beer Olympics
+                            HQ Olympics
                         </Typography>
                         {!matches ? (
                             <>

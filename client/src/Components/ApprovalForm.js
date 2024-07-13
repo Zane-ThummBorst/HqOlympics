@@ -88,7 +88,6 @@ const ApprovalForm = () =>{
                 >
                     <MenuItem value="Ref">Referee</MenuItem>
                     <MenuItem value="Film">Filming</MenuItem>
-                    <MenuItem value="Beer Drinker">Beer Drinker</MenuItem>
                     <MenuItem value="Nothing">Nothing</MenuItem>
                 </TextField>
                 <FormHelperText>{extraCuricularRoleError ? extraCuricularRoleErrorStatus : ''}</FormHelperText>

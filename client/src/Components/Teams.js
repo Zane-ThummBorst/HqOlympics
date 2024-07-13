@@ -82,7 +82,7 @@ const Teams = ({item}) =>{
                 const newTeammatesList = teammatesList.filter(item => item.userId !== userId);
                 setTeammatesList(newTeammatesList);
             }).catch(err => {
-                console.log('failure')
+                console.log(err)
             })
         if(result){
             await axios.put(`${process.env.REACT_APP_API_URL}/users/leavesTeam`,

@@ -56,7 +56,6 @@ const Login = () =>{
                 localStorage.setItem("jwt_token", response.data)
                 let new_loginStatus = loginStatus;
                 setLoginStatus(!new_loginStatus);
-                console.log(response.data)
                 navigate('/')
             }).catch( error =>{
                 if (!error.response){

@@ -44,7 +44,6 @@ const LoginForm = () =>{
         }
         await axios.post(`${process.env.REACT_APP_API_URL}/users/createUser`, body)
         .then(response =>{
-            console.log(response.data)
             localStorage.setItem('jwt_token', response.data)
             let new_registrationStatus = registrationStatus;
             setRegistrationStatus(!new_registrationStatus);
