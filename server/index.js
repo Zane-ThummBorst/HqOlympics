@@ -10,7 +10,7 @@ require('dotenv').config();
 const port = process.env.PORT || 1234
 
 let cors = require('cors');
-app.use(cors({credentials: true, origin: 'https://beerolympics-1.onrender.com'}));
+app.use(cors({credentials: true, origin: 'https://hqolympics.onrender.com'}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
