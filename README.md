@@ -69,7 +69,18 @@ Client-side | Server-side
 # Screenshots of Project
 
 ![hqOlympicDash](https://github.com/user-attachments/assets/769cc125-0640-4627-88ec-d2aef50b0cb1)
+
+Homepage that contains currently created teams
+
 ![hqOlympicTeamCreation](https://github.com/user-attachments/assets/c2934b82-4bf6-4b27-92a3-2aae680f9c8c)
+
+Team creation page where users (captains) can choose a country and a team name
+
 ![HqRegistration](https://github.com/user-attachments/assets/0e1fce2e-37f8-4201-98d1-e8f8d5844324)
+
+Part of the registration process for users (collecting user info for party details)
+
 ![hqregistrationIOS](https://github.com/user-attachments/assets/21810b78-aa67-4b4d-a1b4-ac45c82367da)
+
+responsive view display
 
