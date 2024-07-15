@@ -1,5 +1,5 @@
 # HQ Olympics
- Intro material, what is the project? why was it made? etc ...
+The purpose of this project is to serve as a hub and registration form for an upcoming party me and my roommates are hosting! The party is themed around the summer olympics and will have choice games where teams can compete against one another for medals. On the site, users can register there info so we have an idea of who is coming and if we need to make any special accomodations. Users can also to choose to register as solo or captains, where captains have the extended ability to create one team to invite their friends on to. In the future, depending on how things go, the site might also hold various pieces of information such as; score cards, video(s) of the events and promo, etc. Below are details on how to setup the project locally as well as a link to the current production build, screenshots, and other details.
 
 # Clone or download
 ```terminal
@@ -30,6 +30,8 @@ server/
 
 
 # server setup
+
+
  ```terminal
  $ cd ./server                                                             // navigate to the server folder
  $ echo "SECRET_KEY=*Your JWT secret key*" >> src/.env                     // secret key to sign for token based access
@@ -40,6 +42,18 @@ server/
  ```
 
 # client setup
+
+ ```terminal
+  // make sure to change the proxy server in the package.json file to your local server!
+  "options": {
+    "allowedHosts": [
+      "localhost",
+      ".localhost"
+    ],
+    "proxy": "http://localhost:*your port #*"                              //make sure this is the port number you chose for server!
+  },
+ ```
+
  ```terminal
  $ cd ./client                                                             // navigate to the client folder
  $ echo "REACT_APP_API_URL=http://localhost:*your port #*" >> src/.env     // backend endpoint to make REST requests to server
