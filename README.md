@@ -9,22 +9,24 @@ $ git clone https://github.com/Zane-ThummBorst/BeerOlympics.git
 # File Structure
  ```terminal
 client/
-  build
-  public
-  src/
-    assets
-    Components
+    build
+    public
+    src/
+       assets
+       Components
     App.js
-  .env
+    .env
 server/
-  routes
-  .env
-  index.js
+    routes
+    .env
+    index.js
 ...
 ```
 
 # Prerequisites
- prerequisite techs
+- [MongoDB](https://gist.github.com/nrollr/9f523ae17ecdbb50311980503409aeb3)
+- [Node](https://nodejs.org/en/download/) ^10.0.0
+- [npm](https://nodejs.org/en/download/package-manager/)
 
 # client setup
  client commands
