@@ -28,13 +28,6 @@ server/
 - [Node](https://nodejs.org/en/download/) ^10.0.0
 - [npm](https://nodejs.org/en/download/package-manager/)
 
-# client setup
- ```terminal
- $ cd ./client // navigate to the client folder
- $ npm i // install node packages
- $ echo "REACT_APP_API_URL=*Your backend endpoint*" >> src/.env
- $ npm start
- ```
 
 # server setup
  ```terminal
@@ -44,6 +37,14 @@ server/
  $ echo "MONGO_URI=*Your Mongo URL OR connection string*" >> src/.env
  $ echo "PORT=1234 [or any port you want]" >> src/.env
  $ npm run nodemon
+ ```
+
+# client setup
+ ```terminal
+ $ cd ./client // navigate to the client folder
+ $ npm i // install node packages
+ $ echo "REACT_APP_API_URL=http://localhost:*your port number*/" >> src/.env
+ $ npm start
  ```
 
 # Dependencies
