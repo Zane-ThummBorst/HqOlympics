@@ -45,6 +45,7 @@ server/
 
  ```terminal
   // make sure to change the proxy server in the package.json file to your local server!
+
   "options": {
     "allowedHosts": [
       "localhost",
