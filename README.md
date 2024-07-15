@@ -42,7 +42,7 @@ server/
 # client setup
  ```terminal
  $ cd ./client                                                             // navigate to the client folder
- $ echo "REACT_APP_API_URL=http://localhost:*your port #*/" >> src/.env    // backend endpoint to make REST requests to server
+ $ echo "REACT_APP_API_URL=http://localhost:*your port #*" >> src/.env    // backend endpoint to make REST requests to server
  $ npm i                                                                   // install node packages
  $ npm start                                                               // run client locally
  ```
