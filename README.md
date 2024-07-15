@@ -29,10 +29,22 @@ server/
 - [npm](https://nodejs.org/en/download/package-manager/)
 
 # client setup
- client commands
+ ```terminal
+ $ cd ./client // navigate to the client folder
+ $ npm i // install node packages
+ $ echo "REACT_APP_API_URL=*Your backend endpoint*" >> src/.env
+ $ npm start
+ ```
 
 # server setup
- server commands
+ ```terminal
+ $ cd ./server // navigate to the server folder
+ $ npm i // install node packages
+ $ echo "SECRET_KEY=*Your JWT secret key*" >> src/.env
+ $ echo "MONGO_URI=*Your Mongo URL OR connection string*" >> src/.env
+ $ echo "PORT=1234 [or any port you want]" >> src/.env
+ $ npm run nodemon
+ ```
 
 # Dependencies
  Node Packages
