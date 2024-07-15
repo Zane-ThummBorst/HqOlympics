@@ -50,21 +50,31 @@ server/
 # Dependencies
 Client-side | Server-side
 --- | ---
-    "@emotion/react": "^11.11.4" |  "axios": "^1.6.8"
-    "@emotion/styled": "^11.11.5" | "bad-words": "^3.0.4"
-    "@mui/icons-material": "^5.16.0" | "bcrypt": "^5.1.1"
-    "@mui/material": "^5.15.19" |  "cookie-parser": "^1.4.6"
-    "@testing-library/jest-dom": "^5.17.0" |  "cors": "^2.8.5"
-    "@testing-library/react": "^13.4.0" | "dotenv": "^16.4.5"
-    "@testing-library/user-event": "^13.5.0" | "express": "^4.19.2"
-    "axios": "^1.7.2" | "express-validator": "^7.1.0"
-    "dotenv": "^16.4.5" | "helmet": "^7.1.0"
-    "react": "^18.3.1" | "jsonwebtoken": "^9.0.2"
-    "react-dom": "^18.3.1" | "mongodb": "^6.7.0"
-    "react-router-dom": "^6.23.1" | "nodemon": "^3.1.0"
-    "react-scripts": "5.0.1" |
-    "styled-components": "^6.1.11" |
-    "web-vitals": "^2.1.4" |
+axios: ^0.15.3 | bcrypt-nodejs: ^0.0.3
+babel-preset-stage-1: ^6.1.18|body-parser: ^1.15.2
+lodash: ^3.10.1 | cors: ^2.8.1
+react: ^16.2.0 | dotenv: ^2.0.0
+react-dom: ^16.2.0 | express: ^4.14.0
+react-redux: ^4.0.0 | jwt-simple: ^0.5.1
+react-router-dom: ^4.2.2 | mongoose: ^4.7.4
+redux: ^3.7.2 | morgan: ^1.7.0
+redux-thunk: ^2.1.0 |
+
+"@emotion/react": "^11.11.4" |  "axios": "^1.6.8"
+"@emotion/styled": "^11.11.5" | "bad-words": "^3.0.4"
+"@mui/icons-material": "^5.16.0" | "bcrypt": "^5.1.1"
+"@mui/material": "^5.15.19" |  "cookie-parser": "^1.4.6"
+"@testing-library/jest-dom": "^5.17.0" |  "cors": "^2.8.5"
+"@testing-library/react": "^13.4.0" | "dotenv": "^16.4.5"
+"@testing-library/user-event": "^13.5.0" | "express": "^4.19.2"
+"axios": "^1.7.2" | "express-validator": "^7.1.0"
+"dotenv": "^16.4.5" | "helmet": "^7.1.0"
+"react": "^18.3.1" | "jsonwebtoken": "^9.0.2"
+"react-dom": "^18.3.1" | "mongodb": "^6.7.0"
+"react-router-dom": "^6.23.1" | "nodemon": "^3.1.0"
+"react-scripts": "5.0.1" |
+"styled-components": "^6.1.11" |
+"web-vitals": "^2.1.4" |
 
 # Screenshots of Project
 
