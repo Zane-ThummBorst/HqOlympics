@@ -62,9 +62,9 @@ Client-side | Server-side
     "react": "^18.3.1" | "jsonwebtoken": "^9.0.2"
     "react-dom": "^18.3.1" | "mongodb": "^6.7.0"
     "react-router-dom": "^6.23.1" | "nodemon": "^3.1.0"
-    "react-scripts": "5.0.1"
-    "styled-components": "^6.1.11"
-    "web-vitals": "^2.1.4"
+    "react-scripts": "5.0.1" |
+    "styled-components": "^6.1.11" |
+    "web-vitals": "^2.1.4" |
 
 # Screenshots of Project
 
