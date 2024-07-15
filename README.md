@@ -68,4 +68,5 @@ Client-side | Server-side
 
 # Screenshots of Project
 
- 
+ ![web_portfolio_img](https://github.com/user-attachments/assets/c59d5785-35c6-48a7-96fc-3a83a7197786)
+
