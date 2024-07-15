@@ -68,5 +68,8 @@ Client-side | Server-side
 
 # Screenshots of Project
 
- ![web_portfolio_img](https://github.com/user-attachments/assets/c59d5785-35c6-48a7-96fc-3a83a7197786)
+![hqOlympicDash](https://github.com/user-attachments/assets/769cc125-0640-4627-88ec-d2aef50b0cb1)
+![hqOlympicTeamCreation](https://github.com/user-attachments/assets/c2934b82-4bf6-4b27-92a3-2aae680f9c8c)
+![HqRegistration](https://github.com/user-attachments/assets/0e1fce2e-37f8-4201-98d1-e8f8d5844324)
+![hqregistrationIOS](https://github.com/user-attachments/assets/21810b78-aa67-4b4d-a1b4-ac45c82367da)
 
