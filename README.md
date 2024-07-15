@@ -12,12 +12,12 @@ client/
     build
     public
     src/
-       assets
-       Components
+       assets/
+       Components/
     App.js
     .env
 server/
-    routes
+    routes/
     .env
     index.js
 ...
