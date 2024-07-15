@@ -35,7 +35,7 @@ const FAQ = () =>{
                             Where is this thing?
                         </Typography>
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'}  variant='h6' component='p'>
-                            620 Bloomfield Hoboken, NJ
+                            620 Bloomfield Street apt. 1 Hoboken, NJ
                         </Typography>
                     </Box>
 
@@ -100,7 +100,7 @@ const FAQ = () =>{
                             What if I have questions or want to reach out about something?
                         </Typography>
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                            feel free to shoot us anything on your mind at zane58989@gmail.com
+                            Feel free to shoot us anything on your mind at zane58989@gmail.com
                         </Typography>
                     </Box>
 
@@ -118,7 +118,7 @@ const FAQ = () =>{
                             Why can't I join a team
                         </Typography>
                         <Typography color={'grey'} fontFamily={'PilsenPlakat'} variant='h6' component='p'>
-                            There are a few reasons why you might not be able to join a team. only non captains can join teams, and you must be signed in to join a team. You can only be apart of one team.
+                            There are a few reasons why you might not be able to join a team. only non captains can join teams, and you must be signed in to join a team. You can only be a part of one team.
                         </Typography>
                     </Box>
                 </Grid>
